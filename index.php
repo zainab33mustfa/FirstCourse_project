@@ -20,10 +20,18 @@ if(isset($_POST['doSubmit'])){
   $PostDate = date('Y-m-d H:i:s');
   $sql = "INSERT INTO `posts` (`PostID`, `PublisherName`, `PostTitle`, `PostDetails`, `PostDate`) VALUES (NULL, '$PublisherName', '$PostTitle', '$PostDetails', '$PostDate')";
 
-    
+   
+  if($PublisherName && $PostTitle && $PostDetails){
+
   if($conn->query($sql)){
     header("location: index.php");
   }
+
+}else{
+
+  echo "<div class=\"alert alert-danger\">Add a Publisher Name and a Post Title and a Post Details</div>";
+}
+
 }
 
 ?>
@@ -103,12 +111,12 @@ if(isset($_POST['doSubmit'])){
     <form method="post">
 <div class="form-group mt-2 col-md-12">
   <label class="text-color3"><strong>Name</strong></label>
-  <input type="text" name="PublisherName" id="PublisherName" class="form-control col-3" placeholder="Publisher Name" required>
+  <input type="text" name="PublisherName" id="PublisherName" class="form-control col-3" placeholder="Publisher Name" value="<?=(isset($_POST['PublisherName']))? $_POST['PublisherName'] : ''?>" required>
 </div>
 
 <div class="form-group mt-2 col-md-12">
   <label class="text-color3"><strong>Title</strong></label>
-  <input type="text" name="PostTitle" id="PostTitle" class="form-control col-3" placeholder="Title" required>
+  <input type="text" name="PostTitle" id="PostTitle" class="form-control col-3" placeholder="Title" value="<?=(isset($_POST['PostTitle']))? $_POST['PostTitle'] : ''?>" required>
 </div>
 
 <div class="form-group mt-2 col-md-12">

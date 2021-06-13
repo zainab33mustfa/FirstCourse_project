@@ -1,4 +1,11 @@
-<?PHP 
+
+
+<main class="container">
+
+  <div class="row g-5">
+    <div class="col-md-12">
+
+    <?PHP 
 include("connection.php");
 include("head.php");
 
@@ -15,21 +22,20 @@ if(isset($_POST['doSubmit'])){
   $CommentName = $_POST['CommentName'];
   $Comment = $_POST['editor'];
 
+
   $CommentDate = date('Y-m-d H:i:s');
   $sql = "INSERT INTO `comments` (`CommentID`, `PostID`, `CommentName`, `Comment`, `CommentDate`) VALUES (NULL, '$PostID', '$CommentName', '$Comment', '$CommentDate')";
   
+  if($CommentName && $Comment){
   if($conn->query($sql)){
     header("location: post_details.php?post_id=$PostID");
   }
+}else{
+  echo "<div class=\"alert alert-danger\">Add a name and a comment</div>";
 }
+}
+
 ?>
-
-<main class="container">
-
-  <div class="row g-5">
-    <div class="col-md-12">
-
-
 
 <?PHP while($post = $posts->fetch_assoc()) {?>
 
@@ -73,7 +79,13 @@ if(isset($_POST['doSubmit'])){
 
 
 
-<?PHP } ?>
+<?PHP } 
+if($Comments->num_rows <=0){
+  echo 'There is no comments';
+}
+?>
+
+
 </table>
   </div>
  </div>
@@ -87,7 +99,7 @@ if(isset($_POST['doSubmit'])){
 <form method="post">
 <div class="form-group mt-2 col-md-4">
   <label>Name</label>
-  <input type="text" name="CommentName" id="CommentName" class="form-control col-3" placeholder="Name">
+  <input type="text" name="CommentName" id="CommentName" class="form-control col-3" placeholder="Name" required value="<?=(isset($_POST['CommentName']))? $_POST['CommentName'] : ''?>">
 </div>
 <div class="form-group mt-2 mb-2">
   <label>Comment</label>
