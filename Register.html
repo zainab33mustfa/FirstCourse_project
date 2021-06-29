@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+
+    <title>Blog</title>
+    <script>
+      function pageRedirect() {
+        window.location.href='index.html';
+      }      
+    </script>
+
+    <!-- Bootstrap core CSS -->
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/blog.css" rel="stylesheet">
+    <style>
+
+body, html {
+  height: 100%;
+}
+
+.bg {
+  /* The image used */
+  background-image: url("img/back.jpg");
+
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: repeat-y;
+  background-size: cover;
+}
+
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+
+    </style>
+
+    
+    <!-- Custom styles for this template -->
+    <link href="https://fonts.googleapis.com/css?family=Playfair&#43;Display:700,900&amp;display=swap" rel="stylesheet">
+    <!-- Custom styles for this template -->
+
+  </head>
+  <body class="bg">
+    
+<div class="container" style="width: 75%;">
+  <header class="blog-header py-3  ">
+    <div class="row flex-nowrap justify-content-between align-items-center">
+  
+      <div class="col-12 text-center  p-3 rounded" >
+        <a class="blog-header-logo text-dark " href="index.html">First Course Project</a>
+      </div>
+  
+    </div>
+  </header>
+
+
+
+
+<footer class="blog-footer">
+  
+<form name="user">
+            
+  <!----user Information----->
+  <fieldset>
+      <legend>user Information</legend>
+
+      <table>
+          <tr>
+              <td><label for="fname">Full Name*</label> </td>
+              <td><input type="text" id="fname" name="fname" required /></td>
+              </tr>
+              <tr>
+                <td><label for="lname">Full Name*</label> </td>
+                <td><input type="text" id="lname" name="lname" required /></td>
+                </tr>
+                <tr>
+                  <td><label for="email">Email Adress*</label></td>
+                  <td><input type="email" id="email" name="email" required/></td>
+                </tr>
+      <tr>
+      <td><label for="Gender">Gender*</label></td>
+      <td><input type="radio" id= "Gender" name="gender" value="male" required/>Male<input type="radio" name="gender" value="female"/>Female</td>
+      
+      </tr>
+      
+     
+      <tr>
+      <td><label for="age">age*</label></td>
+      <td ><input type="number" size="1" id="age" name="age" min="10" max="54" value="6" required /></td>
+      </tr>
+      
+     
+      <tr>
+
+        <td>  <button type="button" onclick="pageRedirect()">Register</button> </td>
+      </tr>
+
+  </table>
+  </fieldset>
+
+  </form>
+
+
+</footer>
+
+
+  </body>
+</html>
+
